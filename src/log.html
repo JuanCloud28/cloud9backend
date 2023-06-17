@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    const eventSource = new EventSource('http://localhost:3000/assistance/sse');
+    console.log('init');
+    eventSource.onmessage = (data) => {
+        console.log('data',data)
+        const message = document.createElement('li');
+        message.innerText = 'New message: ' + data.data;
+        document.body.appendChild(message);
+    }
+</script>
